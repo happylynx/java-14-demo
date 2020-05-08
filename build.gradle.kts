@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.nio.file.Files
+
 plugins {
     java
 }
@@ -18,3 +21,13 @@ configure<JavaPluginConvention> {
     // "Could not target platform: 'Java SE 14' using tool chain: 'JDK 13 (13)'."
     sourceCompatibility = JavaVersion.VERSION_14
 }
+
+val localProperties: Properties by lazy {
+    val result = Properties()
+    Files.newBufferedReader(project.file("local.properties").toPath()).use {
+        result.load(it)
+    }
+    result
+}
+println("new jdk ${localProperties["JDK"]}")
+
