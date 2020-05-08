@@ -34,6 +34,7 @@ tasks {
     withType<JavaCompile>() {
         options.isFork = true
         options.forkOptions.javaHome = file(localProperties.getProperty("JDK")!!)
+        options.compilerArgs = listOf("--enable-preview")
     }
 }
 
