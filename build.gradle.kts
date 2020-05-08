@@ -14,5 +14,7 @@ dependencies {
 }
 
 configure<JavaPluginConvention> {
-    sourceCompatibility = JavaVersion.VERSION_1_8
+    // setting it to value higher than current jdk version (13) causes
+    // "Could not target platform: 'Java SE 14' using tool chain: 'JDK 13 (13)'."
+    sourceCompatibility = JavaVersion.VERSION_14
 }
