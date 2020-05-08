@@ -29,5 +29,4 @@ val localProperties: Properties by lazy {
     }
     result
 }
-println("new jdk ${localProperties["JDK"]}")
 
