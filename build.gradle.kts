@@ -30,3 +30,10 @@ val localProperties: Properties by lazy {
     result
 }
 
+tasks {
+    withType<JavaCompile>() {
+        options.isFork = true
+        options.forkOptions.javaHome = file(localProperties.getProperty("JDK")!!)
+    }
+}
+
